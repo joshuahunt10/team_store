@@ -26,15 +26,6 @@ app.set("layout", 'layout');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: false}));
 
-//
-// app.use('/', function(req, res){
-//   var url = apiServerHost + req.url;
-//   req.pipe(request(url)).pipe(res);
-//   .catch(function(err){
-//     console.log(err)
-//   })
-// });
-
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -42,19 +33,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(Home)
+
 app.listen(process.env.PORT || 4000, function(){
   console.log("everything looks good!")
 })
-
- // let stack = new fullStack({
- //    part_number: 1,
- //    name: 'bob',
- //    description: 'blue',
- //    price: 10,
- //    image: 'this.com'
- //  })
- //  stack.save().then(function(req, res){
- //    console.log('stack has been saved')
- //  }).catch(function(err){
- //    console.log('There was an error!')
- //  })
