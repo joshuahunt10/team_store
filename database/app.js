@@ -7,14 +7,18 @@ const fs = require('fs')
 const FPG = require('fake-product-generator')
 const rs = FPG(500) // creates 500 products!
 const ws = fs.createWriteStream('./data.json')
-const fullstacks = require('./models/fullstacks')
 var request =require('request');
 // rs.pipe(ws)
+
+const fullstacks = require('./models/fullstacks')
+const pageviews = require('./models/pageviews')
+
 
 
 
 
 const Home = require ('./routes/home')
+const ProductId = require ('./routes/productId')
 
 
 mongoose.Promise = require('bluebird')
@@ -33,6 +37,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(Home)
+app.use(ProductId)
 
 app.listen(process.env.PORT || 4000, function(){
   console.log("everything looks good!")
