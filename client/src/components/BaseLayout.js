@@ -6,10 +6,14 @@ class BaseLayout extends Component {
   render() {
     return (
       <div>
-        <NavLink to='/' >Home</NavLink>
-        <NavLink to='/products'>Products</NavLink>
-        {this.props.children}
-
+        <nav>
+          <NavLink to='/' >Home</NavLink>
+          <NavLink to='/products'>Products</NavLink>
+        </nav>
+        <div>
+          
+          {this.props.children}
+        </div>
       </div>
     );
   }
